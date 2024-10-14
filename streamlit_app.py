@@ -30,7 +30,7 @@ if "chat_history" not in st.session_state:
 #     st.session_state["risk_factor"] = None
 
 # Streamlit page configuration with a wide layout
-st.set_page_config(page_title="Alpine Intelligence", layout="wide", page_icon="/Users/vimalananda.ravi/Downloads/MuleSoftLogo.png")
+st.set_page_config(page_title="Alpine Intelligence", layout="wide", page_icon="https://cdn.icon-icons.com/icons2/2699/PNG/512/mulesoft_logo_icon_170933.png")
 
 # # MySQL connection details
 # MYSQL_USERNAME = "root"  # Replace with your MySQL username
@@ -213,7 +213,7 @@ col1, col2 = st.columns([1, 14])  # Adjust the ratio for logo and title sizes
 
 # Add the image in the first column
 with col1:
-    st.image("/Users/vimalananda.ravi/Downloads/MuleSoftLogo.png", width=75)  # Replace with your image file
+    st.image("https://cdn.icon-icons.com/icons2/2699/PNG/512/mulesoft_logo_icon_170933.png", width=75)  # Replace with your image file
 
 # Add the title in the second column
 with col2:
