@@ -22,40 +22,10 @@ nltk.download('vader_lexicon')
 if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
 
-# if "feedback_history" not in st.session_state:
-#     st.session_state["feedback_history"] = []
-
-# # Initialize risk factor state
-# if "risk_factor" not in st.session_state:
-#     st.session_state["risk_factor"] = None
 
 # Streamlit page configuration with a wide layout
 st.set_page_config(page_title="Alpine Intelligence", layout="wide", page_icon="https://cdn.icon-icons.com/icons2/2699/PNG/512/mulesoft_logo_icon_170933.png")
 
-# # MySQL connection details
-# MYSQL_USERNAME = "root"  # Replace with your MySQL username
-# MYSQL_PASSWORD = "ranj123%40Data"  # Replace with your MySQL password
-# MYSQL_HOST = "localhost"  # Change if your MySQL server is hosted elsewhere
-# MYSQL_PORT = "3306"  # Default MySQL port
-# MYSQL_DB = "legal_assistant_feedback"
-
-# # Create the SQLAlchemy engine for MySQL
-# engine = create_engine(f"mysql+mysqldb://root:ranj123%40Data@localhost:3306/legal_assistant_feedback")
-
-# Define the base class for ORM models
-# Base = declarative_base()
-
-# # Define Feedback model (ORM table)
-# class Feedback(Base):
-#     __tablename__ = 'feedback'
-#     id = Column(Integer, primary_key=True)
-#     query = Column(Text, nullable=False)
-#     response = Column(Text, nullable=False)
-#     feedback = Column(Text)
-
-# # Create a session to interact with the database
-# Session = sessionmaker(bind=engine)
-# session = Session()
 
 # Initialize dark mode state
 if "dark_mode" not in st.session_state:
@@ -286,62 +256,8 @@ with col1:
         st.session_state["chat_history"].append(("You", user_query))
         st.session_state["chat_history"].append(("AlpineIntelligence", helpful_answer))
 
-        # # Feedback section
-        # feedback = st.radio("Was this answer helpful?", ("✅ Yes", "❌ No"), key="feedback")
-
-        # # Button to submit feedback
-        # if st.button("Submit Feedback"):
-        #     if "feedback_history" not in st.session_state:
-        #         st.session_state["feedback_history"] = []
-        
-        # # Store feedback in session state
-        # st.session_state["feedback_history"].append({
-        #     "query": user_query,
-        #     "response": helpful_answer,
-        #     "feedback": feedback
-        # })
-
-        # # Insert feedback into the MySQL database
-        # feedback_entry = Feedback(query=user_query, response=helpful_answer, feedback=feedback)
-        # session.add(feedback_entry)
-        # session.commit()
-
-        # st.success("Thank you for your feedback!")
 
 
 # Display chat history in the main area
 for speaker, msg in st.session_state["chat_history"]:
     st.markdown(f"<div class='chatbox'><strong>{speaker}:</strong> {msg}</div>", unsafe_allow_html=True)
-
-# with col2:
-#     st.header("Risk Factor")
-#     with col2:
-#     # Input box for user to enter a new risk factor
-#         risk_factor = st.number_input("Enter Risk Factor:", min_value=0, max_value=100, value=st.session_state["risk_factor"])
-
-#     # Update Risk Factor button
-#         if st.button("Update Risk"):
-#             st.session_state["risk_factor"] = risk_factor
-#             st.success(f"Risk Factor updated to {risk_factor}!")
-
-#     # Show the current risk factor
-#         st.subheader("Current Risk Factor")
-#         st.markdown(f"<h3 style='color: #dc3545;'>{st.session_state['risk_factor']}</h3>", unsafe_allow_html=True)
-    
-#     # Display risk factor value
-#     st.write(f"Calculated Risk Factor: *{st.session_state['risk_factor']}*")
-
-# # Function to analyze feedback
-# def analyze_feedback():
-#     if "feedback_history" in st.session_state:
-#         total_feedback = len(st.session_state["feedback_history"])
-#         positive_feedback = sum(1 for fb in st.session_state["feedback_history"] if fb["feedback"] == "✅ Yes")
-#         negative_feedback = total_feedback - positive_feedback
-
-#         st.sidebar.subheader("Feedback Summary")
-#         st.sidebar.write(f"Total Feedback: {total_feedback}")
-#         st.sidebar.write(f"Positive Feedback: {positive_feedback}")
-#         st.sidebar.write(f"Negative Feedback: {negative_feedback}")
-
-# # Call the feedback analysis function
-# analyze_feedback()
