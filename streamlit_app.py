@@ -237,7 +237,7 @@ with col1:
 
     # Process the query when entered
     if user_query:
-        instruction = ("Analyze the provided text segments.Identify key pieces of information that are relevant to the original query.Summarize the information from different segments where applicable, avoiding redundancy.Ensure that the response is concise, coherent, and directly answers the user’s original query.The final response should be well-structured and contain no irrelevant or extraneous information.Output the final response in a paragraph format.")
+        instruction = ("Analyze the provided text segments.Identify key pieces of information that are relevant to the original query.Summarize the information from different segments where applicable, avoiding redundancy.Ensure that the response is concise, coherent, and directly answers the user’s original query.")
         query_with_instruction = instruction + " " + user_query
 
         # Display a spinner while processing
