@@ -204,7 +204,7 @@ index_name = "alpine-intelligence"
 if index_name not in pc.list_indexes().names():
     pc.create_index(
         name=index_name,
-        dimension=768,
+        dimension=1024,
         metric='cosine',
         spec=ServerlessSpec(cloud='aws', region=os.environ["PINECONE_ENV"])
     )
@@ -237,7 +237,7 @@ with col1:
 
     # Process the query when entered
     if user_query:
-        instruction = ("You are an answering agent responsible for synthesizing relevant information from multiple sources to answer the user’s query. Your task is to analyze the provided text segments and construct a concise, coherent response based on the original question. Analyze the provided text segments.Identify key pieces of information that are relevant to the original query.Summarize the information from different segments where applicable, avoiding redundancy.Ensure that the response is concise, coherent, and directly answers the user’s original query.The final response should be well-structured and contain no irrelevant or extraneous information.Output the final response in a paragraph format.")
+        instruction = ("Analyze the provided text segments.Identify key pieces of information that are relevant to the original query.Summarize the information from different segments where applicable, avoiding redundancy.Ensure that the response is concise, coherent, and directly answers the user’s original query.The final response should be well-structured and contain no irrelevant or extraneous information.Output the final response in a paragraph format.")
         query_with_instruction = instruction + " " + user_query
 
         # Display a spinner while processing
