@@ -210,7 +210,8 @@ if index_name not in pc.list_indexes().names():
     )
 
 # Initialize the embedding model
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+# embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/intfloat/multilingual-e5-large")
 
 # Initialize Langchain Pinecone Vector Store
 vectorstore = LangchainPinecone.from_existing_index(index_name=index_name, embedding=embedding_model)
